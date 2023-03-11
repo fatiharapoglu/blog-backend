@@ -15,11 +15,6 @@ const PostSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    createdBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
-    },
     isPublished: {
         type: Boolean,
         default: false,
