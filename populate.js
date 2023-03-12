@@ -43,8 +43,11 @@ const populate = async () => {
             await Comment.create(comment);
             console.log(`Content ${index} is created.`);
         }
+        console.log("Populated.");
+        process.exit(0);
     } catch (err) {
         console.log(err);
+        process.exit(1);
     }
 };
 
