@@ -9,6 +9,16 @@ const getAllPosts = async (req, res) => {
     }
 };
 
+const getSinglePost = async (req, res) => {
+    try {
+        const { postID } = req.params;
+        const post = await Post.findById({ _id: postID });
+        res.status(200).json({ post });
+    } catch (err) {
+        res.status(400).json({ msg: "Error while fetching the post, please try again." });
+    }
+};
+
 const createPost = async (req, res) => {
     try {
         await Post.create(req.body);
@@ -46,4 +56,5 @@ module.exports = {
     createPost,
     editPost,
     deletePost,
+    getSinglePost,
 };

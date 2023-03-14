@@ -2,7 +2,8 @@ const Comment = require("../models/comment");
 
 const getAllComments = async (req, res) => {
     try {
-        const comments = await Comment.find().sort({ timestamp: -1 });
+        const { postID } = req.params;
+        const comments = await Comment.find({ belongsTo: postID }).sort({ timestamp: -1 });
         res.status(200).json({ comments });
     } catch (err) {
         res.status(400).json({ msg: "Error while fetching comments, please try again." });
