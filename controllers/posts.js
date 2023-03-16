@@ -18,6 +18,15 @@ const getPublishedPosts = async (req, res) => {
     }
 };
 
+const getLatestPosts = async (req, res) => {
+    try {
+        const posts = await Post.find({ isPublished: true }).sort({ timestamp: -1 }).limit(3);
+        res.status(200).json({ posts });
+    } catch (err) {
+        res.status(400).json({ msg: "Error while fetching posts, please try again." });
+    }
+};
+
 const getSinglePost = async (req, res) => {
     try {
         const { postID } = req.params;
@@ -67,4 +76,5 @@ module.exports = {
     deletePost,
     getSinglePost,
     getPublishedPosts,
+    getLatestPosts,
 };
