@@ -7,6 +7,7 @@ const {
     editPost,
     deletePost,
     getSinglePost,
+    getPublishedPosts,
 } = require("../controllers/posts");
 const {
     getAllComments,
@@ -17,6 +18,7 @@ const {
 
 router.get("/", getAllPosts);
 router.post("/new", createPost);
+router.get("/published", getPublishedPosts);
 router.patch("/:postID", editPost);
 router.get("/:postID", getSinglePost);
 router.delete("/:postID", deletePost);
