@@ -40,7 +40,7 @@ const getSinglePost = async (req, res) => {
 const createPost = async (req, res) => {
     try {
         await Post.create(req.body);
-        res.status(200);
+        res.status(201).json({ msg: "Created." });
     } catch (err) {
         res.status(400).json({ msg: "Error while creating the post, please try again." });
     }
@@ -53,7 +53,7 @@ const editPost = async (req, res) => {
             new: true,
             runValidators: true,
         });
-        res.status(200);
+        res.status(200).json({ msg: "Edited." });
     } catch (err) {
         res.status(400).json({ msg: "Error while editing the post, please try again." });
     }
@@ -63,7 +63,7 @@ const deletePost = async (req, res) => {
     try {
         const { postID } = req.params;
         await Post.findOneAndDelete({ _id: postID });
-        res.status(200);
+        res.status(200).json({ msg: "Deleted." });
     } catch (err) {
         res.status(400).json({ msg: "Error while deleting the post, please try again." });
     }

@@ -13,7 +13,7 @@ const getAllComments = async (req, res) => {
 const createComment = async (req, res) => {
     try {
         await Comment.create(req.body);
-        res.status(201);
+        res.status(201).json({ msg: "Created." });
     } catch (err) {
         res.status(400).json({ msg: "Error while creating the comment, please try again." });
     }
@@ -26,7 +26,7 @@ const editComment = async (req, res) => {
             new: true,
             runValidators: true,
         });
-        res.status(200);
+        res.status(200).json({ msg: "Edited." });
     } catch (err) {
         res.status(400).json({ msg: "Error while editing the comment, please try again." });
     }
@@ -36,7 +36,7 @@ const deleteComment = async (req, res) => {
     try {
         const { commentID } = req.params;
         await Comment.findOneAndDelete({ _id: commentID });
-        res.status(200);
+        res.status(200).json({ msg: "Deleted." });
     } catch (err) {
         res.status(400).json({ msg: "Error while deleting the comment, please try again." });
     }
