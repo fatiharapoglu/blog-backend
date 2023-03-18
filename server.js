@@ -1,19 +1,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const passport = require("passport");
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 const postsRouter = require("./routes/posts");
+const loginRouter = require("./routes/login");
+const requireAuth = require("./middleware/requireAuth");
+require("./middleware/passport");
 
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({ origin: "*" }));
+app.use(passport.initialize());
 
-app.use("/api/v1/posts", postsRouter);
+app.use("/api/v1/posts", requireAuth, postsRouter);
+app.use("/login", loginRouter);
 
 const start = async () => {
     mongoose.set("strictQuery", false);
