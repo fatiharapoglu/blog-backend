@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const requireAuth = require("../middleware/requireAuth");
+const limiter = require("../middleware/limiter");
 const { getAllComments, createComment, deleteComment } = require("../controllers/comments");
 const {
     getAllPosts,
@@ -24,7 +25,7 @@ router.patch("/:postID", requireAuth, editPost);
 router.delete("/:postID", requireAuth, deletePost);
 
 router.get("/:postID/comments", getAllComments);
-router.post("/:postID/comments/new", createComment);
+router.post("/:postID/comments/new", limiter, createComment);
 router.delete("/:postID/comments/:commentID", requireAuth, deleteComment);
 
 module.exports = router;
