@@ -19,19 +19,6 @@ const createComment = async (req, res) => {
     }
 };
 
-const editComment = async (req, res) => {
-    try {
-        const { commentID } = req.params;
-        await Comment.findOneAndUpdate({ _id: commentID }, req.body, {
-            new: true,
-            runValidators: true,
-        });
-        res.status(200).json({ msg: "Edited." });
-    } catch (err) {
-        res.status(400).json({ msg: "Error while editing the comment, please try again." });
-    }
-};
-
 const deleteComment = async (req, res) => {
     try {
         const { commentID } = req.params;
@@ -45,6 +32,5 @@ const deleteComment = async (req, res) => {
 module.exports = {
     getAllComments,
     createComment,
-    editComment,
     deleteComment,
 };

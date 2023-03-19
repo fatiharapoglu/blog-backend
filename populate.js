@@ -1,8 +1,9 @@
 const { faker } = require("@faker-js/faker");
 const mongoose = require("mongoose");
+require("dotenv").config();
+
 const Post = require("./models/post");
 const Comment = require("./models/comment");
-require("dotenv").config();
 
 const connect = async () => {
     mongoose.set("strictQuery", false);

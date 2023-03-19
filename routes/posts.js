@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const requireAuth = require("../middleware/requireAuth");
+const { getAllComments, createComment, deleteComment } = require("../controllers/comments");
 const {
     getAllPosts,
     createPost,
@@ -11,25 +13,18 @@ const {
     getUnpublishedPosts,
     getLatestPosts,
 } = require("../controllers/posts");
-const {
-    getAllComments,
-    createComment,
-    editComment,
-    deleteComment,
-} = require("../controllers/comments");
 
-router.get("/", getAllPosts);
-router.post("/new", createPost);
+router.get("/", requireAuth, getAllPosts);
 router.get("/published", getPublishedPosts);
-router.get("/unpublished", getUnpublishedPosts);
+router.get("/unpublished", requireAuth, getUnpublishedPosts);
 router.get("/latest", getLatestPosts);
-router.patch("/:postID", editPost);
 router.get("/:postID", getSinglePost);
-router.delete("/:postID", deletePost);
+router.post("/new", requireAuth, createPost);
+router.patch("/:postID", requireAuth, editPost);
+router.delete("/:postID", requireAuth, deletePost);
 
 router.get("/:postID/comments", getAllComments);
 router.post("/:postID/comments/new", createComment);
-router.patch("/:postID/comments/:commentID", editComment);
-router.delete("/:postID/comments/:commentID", deleteComment);
+router.delete("/:postID/comments/:commentID", requireAuth, deleteComment);
 
 module.exports = router;
