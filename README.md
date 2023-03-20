@@ -14,6 +14,7 @@ MERN stack Blog project's back-end (API) repository. Created with **Express** an
 -   [**express-rate-limit**](https://www.npmjs.com/package/express-rate-limit) for limiting the post requests per defined time
 -   [**cors**](https://www.npmjs.com/package/helmet) for enabling CORS with defined options
 -   [**helmet**](https://www.npmjs.com/package/helmet) for security
+-   [**dotenv**](https://www.npmjs.com/package/dotenv) for processing .env files
 
 ---
 
