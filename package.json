@@ -1,22 +1,14 @@
 {
     "name": "blog-backend",
     "version": "1.0.0",
+    "author": "Fatih Arapoğlu",
     "description": "express",
+    "license": "MIT",
+    "keywords": [],
     "scripts": {
         "start": "node server.js",
         "dev": "nodemon server.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fatiharapoglu/blog-backend.git"
-    },
-    "keywords": [],
-    "author": "Fatih Arapoğlu",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/fatiharapoglu/blog-backend/issues"
-    },
-    "homepage": "https://github.com/fatiharapoglu/blog-backend#readme",
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "cors": "^2.8.5",
