@@ -19,5 +19,5 @@ MERN stack Blog project's back-end (API) repository. Created with **Express** an
 
 This is the Back-end part of the MERN Blog Project, The other parts are:
 
--   [**Frontend**](https://github.com/fatiharapoglu/blog-frontend) Repository
+-   [**Front-end**](https://github.com/fatiharapoglu/blog-frontend) Repository
 -   [**Headless CMS**](https://github.com/fatiharapoglu/blog-cms) Repository
