@@ -6,12 +6,12 @@ const CommentSchema = new Schema({
     username: {
         type: String,
         required: true,
-        maxLength: [25, "Username should be lower than 25 characters"],
+        maxLength: [40, "Username should be lower than 40 characters"],
     },
     text: {
         type: String,
         required: true,
-        maxLength: [140, "Comments should be lower than 140 characters"],
+        maxLength: [500, "Comments should be lower than 500 characters"],
     },
     timestamp: {
         type: Date,
