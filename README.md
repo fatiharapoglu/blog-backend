@@ -1,4 +1,4 @@
-# Blog (Backend / API)
+# Blog (Back-end / API)
 
 MERN stack Blog project's back-end (API) repository. Created with **Express** and **mongoDB**. Deployed on [**Cyclic.sh**](https://www.cyclic.sh/).
 
