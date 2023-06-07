@@ -26,6 +26,6 @@ This is the Back-end part of the MERN Blog Project, The other parts are:
 -   [bcryptjs](https://www.npmjs.com/package/bcryptjs) for hashing passwords
 -   [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) for JWTs
 -   [express-rate-limit](https://www.npmjs.com/package/express-rate-limit) for limiting the post requests per defined time
--   [cors](https://www.npmjs.com/package/helmet) for enabling CORS with defined options
+-   [cors](https://www.npmjs.com/package/cors) for enabling CORS with defined options
 -   [helmet](https://www.npmjs.com/package/helmet) for security
 -   [dotenv](https://www.npmjs.com/package/dotenv) for processing .env files
